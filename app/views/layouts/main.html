@@ -1,0 +1,23 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
+
+{% block header %}
+    <div class="app-header">
+        <div class="app-header__logo">
+            DLUHC
+        </div>
+        <div class="app-header__service-name">
+            {{ serviceName }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="app-footer">
+        <p class="govuk-body">Footer here</p>
+    </div>
+{% endblock %}

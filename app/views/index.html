@@ -1,0 +1,27 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      About this prototype
+    </h1>
+
+    <p class="govuk-body">This is a prototype of an internal tool for managing the creation of data standards for planning and housing data.</p>
+
+    <p class="govuk-body">
+      {{ govukButton({
+        text: "Start",
+        href: "/start",
+        isStartButton: true
+      }) }}
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

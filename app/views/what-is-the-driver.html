@@ -1,5 +1,5 @@
 {% extends "layouts/form.html" %}
-{% set title = "What is the driver?" %}
+{% set title = "What is the driver for the request?" %}
 
 {% block form %}
   {{ govukRadios({
@@ -9,7 +9,7 @@
     },
     fieldset: {
       legend: {
-        text: "Whaty is the driver for the request?",
+        text: title,
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }

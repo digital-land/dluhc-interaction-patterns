@@ -3,8 +3,14 @@
 {% block content %}
   <form class="govuk-grid-row" method="post">
     <div class="govuk-grid-column-two-thirds">
-      {% block form %}
-      {% endblock %}
+      {% block form %}{% endblock %}
     </div>
   </form>
+{% endblock %}
+
+{% block footer_content %}
+  {{ govukSummaryList(data | summaryList) }}
+  {% if data.length > 0 %}
+    <a href="/manage-prototype/clear-data">Clear data</a>
+  {% endif %}
 {% endblock %}

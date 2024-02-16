@@ -8,3 +8,19 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // Add your filters here
 
+addFilter('summaryList', function (data) {
+  let summaryListObject = {
+    rows: []
+  }
+  for (const [key, value] of Object.entries(data)) {
+    summaryListObject.rows.push({
+      key: {
+        text: key
+      },
+      value: {
+        text: value
+      }
+    })
+  }
+  return summaryListObject
+})

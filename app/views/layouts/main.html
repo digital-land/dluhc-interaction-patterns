@@ -17,7 +17,11 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% endblock %}
 
 {% block footer %}
-    <div class="app-footer">
-        <p class="govuk-body">Footer here</p>
+    <div class="app-footer govuk-!-padding-2">
+        <div class="govuk-width-container">
+            {% block footer_content %}
+                <p class="govuk-body-s">2024</p>
+            {% endblock %}
+        </div>
     </div>
 {% endblock %}

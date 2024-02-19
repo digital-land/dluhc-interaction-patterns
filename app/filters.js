@@ -24,6 +24,12 @@ const generateId = function (string, prefix = '', suffix = '') {
 
 addFilter('generateId', generateId)
 
+/**
+ * Check if a value matches true if so to enable checkbox/radio to be checked or not
+ * @param {string} value a text value from an input
+ * @param {*} params either a string or an array depending on if checkbox or radio
+ * @returns true or false
+ */
 let shouldIBeChecked = function (value, params) {
   if (Array.isArray(params.data[params.question])) {
     return params.data[params.question].includes(value)
@@ -32,6 +38,12 @@ let shouldIBeChecked = function (value, params) {
   }
 }
 
+/**
+ *
+ * @param {string} value value of an input
+ * @param {*} params object of possible parameters passed to the filter
+ * @returns an object matching the checkbox/radio nunjucks options
+ */
 const defaultItem = function (value, params) {
   let itemOptions = {
     text: value,

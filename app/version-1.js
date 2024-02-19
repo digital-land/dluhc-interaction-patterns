@@ -16,7 +16,13 @@ const standardsManagerWizard = req => {
     '/RE1': {},
     '/RE2': {},
     '/RE3': {},
-    '/RE4': {}
+    '/RE4': {},
+    '/RE5': {},
+    '/RE6': {},
+    '/RE7': {},
+    '/RE8': {},
+    '/RE9': {},
+    '/RE10': {}
   }
   return wizard(journey, req)
 }

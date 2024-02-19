@@ -1,0 +1,36 @@
+{% extends "layouts/form.html" %}
+{% set title = "Who are some of the likely secondary users of the data?" %}
+{% set hint = "These are actors who may find the data useful, but are not the statutory user - tick list of common users + other box" %}
+{% set fieldName = title | generateId %}
+
+{% block form %}
+
+  {{ govukCheckboxes({
+    name: fieldName,
+    hint: {
+      text: hint
+    },
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [
+      "Paul" | checkItem({ data: data, question: fieldName }),
+      "Corinne" | checkItem({ data: data, question: fieldName }),
+      "Carly" | checkItem({ data: data, question: fieldName }),
+      "Tick item" | checkItem({ data: data, question: fieldName }),
+      {
+        divider: "or"
+      },
+      "Other" | radioItem({ data: data, question: fieldName })
+    ]
+  }) }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

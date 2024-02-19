@@ -7,9 +7,7 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
-
-const version = `version-1`
-const standardsManagerWizard = require(`./${version}.js`)
+const standardsManagerWizard = require(`./version-1.js`)
 
 router.all('/:view', (req, res, next) => {
   const { data } = req.session

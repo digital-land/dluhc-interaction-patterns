@@ -1,11 +1,12 @@
 {% extends "layouts/form.html" %}
 {% set title = "Who asked for it?" %}
+{% set fieldName = title | generateId %}
 
 {% block form %}
 
   {{ govukInput({
-    id: title | generateId,
-    name: title | generateId,
+    id: fieldName,
+    name: fieldName,
     label: {
         text: title,
         isPageHeading: true,
@@ -13,7 +14,8 @@
     },
     hint: {
         text: "This should be the specific person, team or organisation"
-    }
+    },
+    value: data[fieldName]
   }) }}
 
   {{ govukButton({

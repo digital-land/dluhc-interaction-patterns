@@ -1,11 +1,12 @@
 {% extends "layouts/form.html" %}
 {% set title = "Where will or should the data be used?" %}
+{% set fieldName = title | generateId %}
 
 {% block form %}
 
   {{ govukTextarea({
-    id: title | generateId,
-    name: title,
+    id: fieldName,
+    name: fieldName,
     label: {
       text: title,
       isPageHeading: true,
@@ -13,7 +14,8 @@
     },
     hint: {
       text: "This is where we expect the data to be used for this (primary?) planning consideration but also cross referencing with other considerations"
-    }
+    },
+    value: data[fieldName]
   }) }}
 
   {{ govukButton({

@@ -9,27 +9,47 @@ const { slugify } = require('@x-govuk/govuk-prototype-filters')
 
 // Add your filters here
 
-addFilter('generateId', function (string, prefix = '', suffix = '') {
-  return `${
-    prefix ? prefix + '_' : ''
-  }${slugify(string).replaceAll('-', '_')}${suffix ? '_' + suffix : ''}`
-})
-
-let defaultItem = function (text, value) {
-  let itemObject = {}
-  if (text) {
-    itemObject.text = text
-  }
-  if (value) {
-    itemObject.value = value
-  } else {
-    itemObject.value = text
-  }
-  return itemObject
+/**
+ *
+ * @param {string} string text string to generate an id based up
+ * @param {string} prefix thing to be prepended to the string
+ * @param {string} suffix things to be appended to the string
+ * @returns returns a specially sluggified string using underscores
+ */
+const generateId = function (string, prefix = '', suffix = '') {
+  return `${prefix ? prefix + '_' : ''}${slugify(string).replaceAll('-', '_')}${
+    suffix ? '_' + suffix : ''
+  }`
 }
 
-addFilter('radioItem', defaultItem)
-addFilter('checkItem', defaultItem)
+addFilter('generateId', generateId)
+
+let shouldIBeChecked = function (value, params) {
+  if (Array.isArray(params.data[params.question])) {
+    return params.data[params.question].includes(value)
+  } else {
+    return value == params.data[params.question]
+  }
+}
+
+const defaultItem = function (value, params) {
+  let itemOptions = {
+    text: value,
+    value: value
+  }
+  if (params) {
+    itemOptions.checked = shouldIBeChecked(value, params)
+  }
+  return itemOptions
+}
+
+addFilter('radioItem', function (value, params) {
+  return defaultItem(value, params)
+})
+
+addFilter('checkItem', function (value, params) {
+  return defaultItem(value, params)
+})
 
 addFilter('summaryList', function (data) {
   let summaryListObject = {

@@ -7,10 +7,16 @@ const standardsManagerWizard = req => {
     // this is basically a redirect because I don't want to
     // have to change the URL on the start button all the time
     '/start': {
-      '/who-asked-for-it': true
+      '/BA1': true
     },
-    '/who-asked-for-it': {},
-    '/what-is-the-driver': {}
+    '/BA1': {},
+    '/BA2': {},
+    '/BA2': {},
+    '/BA3': {},
+    '/RE1': {},
+    '/RE2': {},
+    '/RE3': {},
+    '/RE4': {}
   }
   return wizard(journey, req)
 }

@@ -4,8 +4,8 @@
 {% block form %}
 
   {{ govukInput({
-    id: "who_asked",
-    name: "who_asked",
+    id: title | generateId,
+    name: title | generateId,
     label: {
         text: title,
         isPageHeading: true,

@@ -1,0 +1,30 @@
+{% extends "layouts/form.html" %}
+{% set title = "Which 2024 focus area does the request support?" %}
+
+{% block form %}
+
+  {{ govukRadios({
+      name: title | generateId,
+      hint: {
+        text: 'We want to tie it back to programme goals where possible'
+      },
+      fieldset: {
+        legend: {
+          text: title,
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        "75 authorities using modern software" | radioItem,
+        "Faster local plans" | radioItem,
+        { divider: 'or'},
+        "other" | radioItem
+      ]
+    }) }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layouts/form.html" %}
+{% set title = "What is the (high-level) lifecycle of this thing?" %}
+
+{% block form %}
+
+  <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+  <p class="govuk-hint">Do we know how the designation is made and how something is de-designated?</p>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

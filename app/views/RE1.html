@@ -1,0 +1,23 @@
+{% extends "layouts/form.html" %}
+{% set title = "Do we understand how the data is created/produced?" %}
+
+{% block form %}
+
+  {{ govukTextarea({
+    id: title | generateId,
+    name: title | generateId,
+    label: {
+      text: title,
+      isPageHeading: true,
+      classes: "govuk-label--xl"
+    },
+    hint: {
+      text: "What is the recipe? How do we think the publisher does this?"
+    }
+  }) }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

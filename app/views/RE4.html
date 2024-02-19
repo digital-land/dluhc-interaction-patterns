@@ -1,0 +1,16 @@
+{% extends "layouts/form.html" %}
+{% set title = "What other planning considerations does it interact with?" %}
+{% set hint = "List such as Article 4 Directions, Permitted Development Rights etc" %}
+
+{% block form %}
+
+  <h1 class="govuk-heading-xl">{{ title }}</h1>
+  <p class="govuk-hint">{{ hint }}</p>
+
+  <p class="govuk-heading-m">Need to build auto complete here</p>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

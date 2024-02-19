@@ -1,0 +1,23 @@
+{% extends "layouts/form.html" %}
+{% set title = "Where will or should the data be used?" %}
+
+{% block form %}
+
+  {{ govukTextarea({
+    id: title | generateId,
+    name: title,
+    label: {
+      text: title,
+      isPageHeading: true,
+      classes: "govuk-label--xl"
+    },
+    hint: {
+      text: "This is where we expect the data to be used for this (primary?) planning consideration but also cross referencing with other considerations"
+    }
+  }) }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

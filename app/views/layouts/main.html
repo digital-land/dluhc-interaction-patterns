@@ -5,6 +5,15 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
 
+{% block beforeContent %}
+    {% if paths.back %}
+        {{ govukBackLink({
+        text: "Back",
+        href: paths.back
+    }) }}
+    {% endif %}
+{% endblock %}
+
 {% block header %}
     <div class="app-header">
         <div class="app-header__logo">

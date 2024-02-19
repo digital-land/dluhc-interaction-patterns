@@ -13,10 +13,12 @@
 .app-header {
   background: #000;
   padding: 15px;
-  display: flex;
-  align-items: center;
-  color: white;
-  gap: 1em;
+  &__container {
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 1em;
+  }
   &__logo,
   &__service-name {
     @include govuk-font(19);

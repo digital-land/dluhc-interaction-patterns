@@ -12,7 +12,6 @@ const standardsManagerWizard = req => {
     '/BA1': {},
     '/BA2': {},
     '/BA3': {},
-    '/BA2': {},
     '/RE1': {},
     '/RE2': {},
     '/RE3': {},

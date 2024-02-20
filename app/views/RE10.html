@@ -1,8 +1,30 @@
 {% extends "layouts/form.html" %}
-{% set title = "" %}
-{% set hint = "" %}
+{% set title = "What's the value of adding this data to the platform?" %}
+{% set hint = "Is this a consideration of the value of DLUHC investing time and effort in getting the data ready and re-publishing" %}
 
 {% block form %}
+
+  {{ govukCheckboxes({
+    name: fieldName,
+    hint: {
+      text: hint
+    },
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [
+      "Valuable to Open Digital Planning" | checkItem({ data: data, question: fieldName }),
+      "Valuable to PropTech" | checkItem({ data: data, question: fieldName }),
+      "Valuable to central government" | checkItem({ data: data, question: fieldName }),
+      "Item" | checkItem({ data: data, question: fieldName }),
+      "Item" | checkItem({ data: data, question: fieldName }),
+      "Item" | checkItem({ data: data, question: fieldName })
+    ]
+  }) }}
 
   {{ govukButton({
     text: "Continue"

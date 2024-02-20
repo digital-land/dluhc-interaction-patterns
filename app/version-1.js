@@ -11,8 +11,8 @@ const standardsManagerWizard = req => {
     },
     '/BA1': {},
     '/BA2': {},
-    '/BA2': {},
     '/BA3': {},
+    '/BA2': {},
     '/RE1': {},
     '/RE2': {},
     '/RE3': {},
@@ -22,7 +22,10 @@ const standardsManagerWizard = req => {
     '/RE7': {},
     '/RE8': {},
     '/RE9': {},
-    '/RE10': {}
+    '/RE10': {},
+    '/RE11': {},
+    '/RE12': {},
+    '/RE13': {}
   }
   return wizard(journey, req)
 }

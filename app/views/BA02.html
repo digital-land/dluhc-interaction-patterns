@@ -1,12 +1,13 @@
 {% extends "layouts/form.html" %}
 {% set title = "What is the driver for the request?" %}
+{% set hint = "Trying to work out why this is a request now" %}
 {% set fieldName = title | generateId %}
 
 {% block form %}
   {{ govukRadios({
     name: fieldName,
     hint: {
-      text: "Trying to work out why this is a request now"
+      text: hint
     },
     fieldset: {
       legend: {

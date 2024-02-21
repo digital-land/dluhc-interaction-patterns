@@ -5,6 +5,24 @@
 
 {% block form %}
 
+  {{ govukRadios({
+    name: fieldName,
+    hint: {
+      text: hint
+    },
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [
+      "Yes" | radioItem({ data: data, question: fieldName }),
+      "No" | radioItem({ data: data, question: fieldName })
+    ]
+  }) }}
+
   {{ govukButton({
     text: "Continue"
   }) }}

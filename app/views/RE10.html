@@ -17,12 +17,12 @@
       }
     },
     items: [
-      "Valuable to Open Digital Planning" | checkItem({ data: data, question: fieldName }),
-      "Valuable to PropTech" | checkItem({ data: data, question: fieldName }),
-      "Valuable to central government" | checkItem({ data: data, question: fieldName }),
-      "Item" | checkItem({ data: data, question: fieldName }),
-      "Item" | checkItem({ data: data, question: fieldName }),
-      "Item" | checkItem({ data: data, question: fieldName })
+      "Valuable to Open Digital Planning" | checkItem({ data: data.questions, question: this_id }),
+      "Valuable to PropTech" | checkItem({ data: data.questions, question: this_id }),
+      "Valuable to central government" | checkItem({ data: data.questions, question: this_id }),
+      "Item" | checkItem({ data: data.questions, question: this_id }),
+      "Item" | checkItem({ data: data.questions, question: this_id }),
+      "Item" | checkItem({ data: data.questions, question: this_id })
     ]
   }) }}
 

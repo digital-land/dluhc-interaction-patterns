@@ -1,7 +1,9 @@
 {% extends "layouts/form.html" %}
 {% set title = "" %}
 {% set hint = "" %}
-{% set fieldName = title | generateId %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 
 {% block form %}
 

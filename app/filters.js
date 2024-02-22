@@ -5,22 +5,7 @@
 
 const govukPrototypeKit = require('govuk-prototype-kit')
 const addFilter = govukPrototypeKit.views.addFilter
-const { slugify } = require('@x-govuk/govuk-prototype-filters')
-
-// Add your filters here
-
-/**
- *
- * @param {string} string text string to generate an id based up
- * @param {string} prefix thing to be prepended to the string
- * @param {string} suffix things to be appended to the string
- * @returns returns a specially sluggified string using underscores
- */
-const generateId = function (string, prefix = '', suffix = '') {
-  return `${prefix ? prefix + '_' : ''}${slugify(string).replaceAll('-', '_')}${
-    suffix ? '_' + suffix : ''
-  }`
-}
+const generateId = require('./lib/generateId')
 
 addFilter('generateId', generateId)
 
@@ -63,19 +48,27 @@ addFilter('checkItem', function (value, params) {
   return defaultItem(value, params)
 })
 
+addFilter('addQuestion', function (str) {
+  return `questions[${str}]`
+})
+
 addFilter('summaryList', function (data) {
-  let summaryListObject = {
-    rows: []
+  if (data) {
+    let summaryListObject = {
+      rows: []
+    }
+    for (const [key, value] of Object.entries(data)) {
+      summaryListObject.rows.push({
+        key: {
+          text: key.charAt(0).toUpperCase() + key.slice(1).replaceAll('_', ' ')
+        },
+        value: {
+          text: value
+        }
+      })
+    }
+    return summaryListObject
+  } else {
+    return false
   }
-  for (const [key, value] of Object.entries(data)) {
-    summaryListObject.rows.push({
-      key: {
-        text: key.charAt(0).toUpperCase() + key.slice(1).replaceAll('_', ' ')
-      },
-      value: {
-        text: value
-      }
-    })
-  }
-  return summaryListObject
 })

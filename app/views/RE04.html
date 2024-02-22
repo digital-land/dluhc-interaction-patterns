@@ -1,13 +1,27 @@
 {% extends "layouts/form.html" %}
-{% set title = "What other planning considerations does it interact with?" %}
-{% set hint = "List such as Article 4 Directions, Permitted Development Rights etc" %}
+{% set title = "Does it interact with any other planning considerations?" %}
+{% set fieldName = 'RM04' %}
+{% set hint = "Explanation here" %}
 
 {% block form %}
 
-  <h1 class="govuk-heading-xl">{{ title }}</h1>
-  <p class="govuk-hint">{{ hint }}</p>
-
-  <p class="govuk-heading-m">Need to build auto complete here</p>
+  {{ govukRadios({
+    name: fieldName,
+    hint: {
+      text: hint
+    },
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [
+      "Yes" | radioItem({ data: data.questions, question: this_id }),
+      "No" | radioItem({ data: data.questions, question: this_id })
+    ]
+  }) }}
 
   {{ govukButton({
     text: "Continue"

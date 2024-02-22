@@ -1,7 +1,9 @@
 {% extends "layouts/form.html" %}
 {% set title = "What is the driver for the request?" %}
 {% set hint = "Trying to work out why this is a request now" %}
-{% set fieldName = title | generateId %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 
 {% block form %}
   {{ govukRadios({
@@ -17,15 +19,15 @@
       }
     },
     items: [
-      "National policy change" | radioItem({ data: data, question: fieldName }),
-      "Ministerial priority" | radioItem({ data: data, question: fieldName }),
-      "Specific user requirement" | radioItem({ data: data, question: fieldName }),
-      "LPA requirement" | radioItem({ data: data, question: fieldName }),
-      "Existing planning requirement" | radioItem({ data: data, question: fieldName }),
+      "National policy change" | radioItem({ data: data.questions, question: this_id }),
+      "Ministerial priority" | radioItem({ data: data.questions, question: this_id }),
+      "Specific user requirement" | radioItem({ data: data.questions, question: this_id }),
+      "LPA requirement" | radioItem({ data: data.questions, question: this_id }),
+      "Existing planning requirement" | radioItem({ data: data.questions, question: this_id }),
       {
         divider: "or"
       },
-      "Other" | radioItem({ data: data, question: fieldName })
+      "Other" | radioItem({ data: data.questions, question: this_id })
     ]
   }) }}
 

@@ -1,6 +1,9 @@
 {% extends "layouts/form.html" %}
 {% set title = "Who asked for it?" %}
-{% set fieldName = title | generateId %}
+{% set hint = "This should be the specific person, team or organisation" %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 
 {% block form %}
 
@@ -13,9 +16,9 @@
         classes: "govuk-label--xl"
     },
     hint: {
-        text: "This should be the specific person, team or organisation"
+        text: hint
     },
-    value: data[fieldName]
+    value: fieldValue
   }) }}
 
   {{ govukButton({

@@ -1,6 +1,8 @@
 {% extends "layouts/form.html" %}
 {% set title = "Which 2024 focus area does the request support?" %}
-{% set fieldName = title | generateId %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 
 {% block form %}
 
@@ -17,10 +19,10 @@
         }
       },
       items: [
-        "75 authorities using modern software" | radioItem({ data: data, question: fieldName }),
-        "Faster local plans" | radioItem({ data: data, question: fieldName }),
+        "75 authorities using modern software" | radioItem({ data: data.questions, question: this_id }),
+        "Faster local plans" | radioItem({ data: data.questions, question: this_id }),
         { divider: 'or'},
-        "Other" | radioItem({ data: data, question: fieldName })
+        "Other" | radioItem({ data: data.questions, question: this_id })
       ]
     }) }}
 

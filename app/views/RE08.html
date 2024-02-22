@@ -1,7 +1,9 @@
 {% extends "layouts/form.html" %}
 {% set title = "Who are some of the likely secondary users of the data?" %}
 {% set hint = "These are actors who may find the data useful, but are not the statutory user - tick list of common users + other box" %}
-{% set fieldName = title | generateId %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 
 {% block form %}
 
@@ -18,14 +20,14 @@
       }
     },
     items: [
-      "Item" | checkItem({ data: data, question: fieldName }),
-      "Another item" | checkItem({ data: data, question: fieldName }),
-      "Thing" | checkItem({ data: data, question: fieldName }),
-      "Tick item" | checkItem({ data: data, question: fieldName }),
+      "Item" | checkItem({ data: data.questions, question: this_id }),
+      "Another item" | checkItem({ data: data.questions, question: this_id }),
+      "Thing" | checkItem({ data: data.questions, question: this_id }),
+      "Tick item" | checkItem({ data: data.questions, question: this_id }),
       {
         divider: "or"
       },
-      "Other" | radioItem({ data: data, question: fieldName })
+      "Other" | radioItem({ data: data.questions, question: this_id })
     ]
   }) }}
 

@@ -1,6 +1,8 @@
 {% extends "layouts/form.html" %}
 {% set title = "Do we understand how the data is created/produced?" %}
-{% set fieldName = title | generateId %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 
 {% block form %}
 
@@ -15,7 +17,7 @@
     hint: {
       text: "What is the recipe? How do we think the publisher does this?"
     },
-    value: data[fieldName] or ''
+    value: fieldValue
   }) }}
 
   {{ govukButton({

@@ -1,7 +1,9 @@
 {% extends "layouts/form.html" %}
 {% set title = "Does the request for data link directly to a planning consideration?" %}
 {% set hint = "Yes means that there is a specific requirement under legislation for this data. No means that there is another driver for this data" %}
-{% set fieldName = title | generateId %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 
 {% block form %}
 
@@ -18,8 +20,8 @@
       }
     },
     items: [
-      "Yes" | radioItem({ data: data, question: fieldName }),
-      "No" | radioItem({ data: data, question: fieldName })
+      "Yes" | radioItem({ data: data.questions, question: this_id }),
+      "No" | radioItem({ data: data.questions, question: this_id })
     ]
   }) }}
 

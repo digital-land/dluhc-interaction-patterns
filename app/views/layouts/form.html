@@ -9,9 +9,8 @@
 {% endblock %}
 
 {% block footer_content %}
-  {{ data | log }}
-  {{ stage | log }}
-  {{ govukSummaryList(data | summaryList) }}
+  {{ data.questions | log }}
+  {{ govukSummaryList(data.questions | summaryList) }}
   {% if data.length > 0 %}
     <a href="/manage-prototype/clear-data">Clear data</a>
   {% endif %}

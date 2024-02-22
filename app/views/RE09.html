@@ -1,7 +1,9 @@
 {% extends "layouts/form.html" %}
 {% set title = "How would the (secondary) users use the data?" %}
 {% set hint = "You may need to do further user research… at this point" %}
-{% set fieldName = title | generateId %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 
 {% block form %}
 
@@ -16,7 +18,7 @@
     hint: {
       text: hint
     },
-    value: data[fieldName]
+    value: fieldValue
   }) }}
 
   {{ govukButton({

@@ -1,0 +1,35 @@
+{% extends "layouts/form.html" %}
+{% set title = "What other planning considerations does it interact with?" %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
+{% set hint = "List such as Article 4 Directions, Permitted Development Rights etc" %}
+
+{% block form %}
+
+  {{ xGovukAutocomplete({
+      id: fieldName,
+      name: fieldName,
+      allowEmpty: false,
+      formGroup: {
+        classes: 'govuk-!-margin-bottom-8'
+      },
+      label: {
+        classes: "govuk-label--m govuk-!-margin-bottom-1",
+        text: 'Add a planning consideration'
+      },
+      hint: {
+        text: "Add one a time, searching by name, for example, 'Article 4 Directions'"
+      },
+      items: [
+        { text: "Tree preservation orders" },
+        { text: "Something" },
+        { text: "Donut" }
+      ]
+    }) }}
+
+  {{ govukButton({
+    text: "Save and continue"
+  }) }}
+
+{% endblock %}

@@ -19,12 +19,20 @@ module.exports = req => {
       '/RE02': {},
       '/RE03': {},
       '/RE04': {
-        '/RE04-01': { data: 'RM04', value: 'Yes' }
+        '/RE04-01': {
+          data: "questions['does_it_interact_with_any_other_planning_considerations']",
+          value: 'Yes'
+        },
+        '/RE05': {
+          data: "questions['does_it_interact_with_any_other_planning_considerations']",
+          value: 'No'
+        }
       },
       '/RE04-01': {
-        '/RE04-01': () => {
-          return req.session.data.key != ''
-        }
+        '/RE04-02': { data: 'add_another', value: 'Yes' }
+      },
+      '/RE04-02': {
+        '/RE04-01': true
       },
       '/RE05': {},
       '/RE06': {},

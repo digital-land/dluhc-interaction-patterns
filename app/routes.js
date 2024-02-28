@@ -9,6 +9,17 @@ const wizard = require('@x-govuk/govuk-prototype-wizard')
 
 // Add your routes here
 
+router.get('/RE04-01', (req, res, next) => {
+  const { data } = req.session
+  if (!data.interactions) {
+    data.interactions = []
+  }
+  data.interactions.push(
+    data.questions.what_other_planning_considerations_does_it_interact_with
+  )
+  next()
+})
+
 router.all('/:view', (req, res, next) => {
   // get data needed for all
   const journey = require('./journey')(req)

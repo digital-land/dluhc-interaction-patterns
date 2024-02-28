@@ -1,9 +1,13 @@
 {% extends "layouts/form.html" %}
 {% set title = "Does it interact with any other planning considerations?" %}
-{% set fieldName = 'RM04' %}
+{% set this_id = title | generateId %}
+{% set fieldName = this_id | addQuestion %}
+{% set fieldValue = data.questions[this_id] %}
 {% set hint = "Explanation here" %}
 
 {% block form %}
+
+  {{ fieldName | log }}
 
   {{ govukRadios({
     name: fieldName,
@@ -24,7 +28,7 @@
   }) }}
 
   {{ govukButton({
-    text: "Continue"
+    text: "Save and continue"
   }) }}
 
 {% endblock %}

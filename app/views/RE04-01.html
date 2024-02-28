@@ -7,67 +7,35 @@
 
 {% block form %}
 
-  <h1 class="govuk-heading-xl">{{ title }}</h1>
-
-  {{ govukSummaryList({
-    rows: [
-      {
-        key: {
-          text: "Name"
-        },
-        value: {
-          text: "Sarah Philips"
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "Change",
-              visuallyHiddenText: "name"
-            }
-          ]
+  {% if data.interactions | length %}
+    <h1 class="govuk-heading-m govuk-!-margin-bottom-x">You have added {{ data.interactions | length }} consideration{{ data.interactions | length | pluralise }}</h1>
+    <hr class="govuk-section-break govuk-section-break--m">
+    <ol class="app-itemised-list">
+      {% for interaction in data.interactions %}
+        <li class="app-itemised-list__item">
+          <div class="app-itemised-list__item__text">{{ interaction }}</div>
+          <div class="app-itemised-list__item__action">{{ 'Remove' }}</div>
+        </li>
+      {% endfor %}
+    </ol>
+    <hr class="govuk-section-break govuk-section-break--m">
+    {{ govukRadios({
+      name: 'add_another',
+      fieldset: {
+        legend: {
+          text: 'Would you like to add another planning consideration?',
+          classes: "govuk-fieldset__legend--l"
         }
       },
-      {
-        key: {
-          text: "Date of birth"
-        },
-        value: {
-          text: "5 January 1978"
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "Change",
-              visuallyHiddenText: "date of birth"
-            }
-          ]
-        }
-      }
-    ]
-  }) }}
-
-  {{ xGovukAutocomplete({
-    id: fieldName,
-    name: fieldName,
-    allowEmpty: false,
-    label: {
-      classes: "govuk-label--m govuk-!-margin-bottom-1",
-      text: 'Search'
-    },
-    hint: {
-      text: 'Search for a planning consideration'
-    },
-    items: [
-      { text: "Tree preservation orders" },
-      { text: "Something" },
-      { text: "Donut" }
-    ]
-  }) }}
+      items: [
+        "Yes" | radioItem,
+        "No" | radioItem
+      ]
+    }) }}
+  {% endif %}
 
   {{ govukButton({
-    text: "Continue"
+    text: "Save and continue"
   }) }}
 
 {% endblock %}

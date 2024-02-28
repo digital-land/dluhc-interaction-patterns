@@ -1,0 +1,55 @@
+// Add extra styles here
+.govuk-template,
+.app-footer {
+  background: govuk-colour("light-grey");
+}
+
+.app-header {
+  background: #000;
+  padding: 15px;
+  &__container {
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 1em;
+  }
+  &__logo,
+  &__service-name {
+    @include govuk-font($size: 19);
+    line-height: 1 !important;
+    flex-basis: auto;
+  }
+  &__logo {
+    font-weight: bold;
+  }
+  &__service-name {
+  }
+}
+
+.app-footer {
+  border-top: 1px solid govuk-colour("mid-grey");
+}
+
+.app-itemised-list {
+  margin: 0;
+  padding: 0;
+  &__item {
+    display: flex;
+    @include govuk-font(19);
+    @include govuk-responsive-padding(2, "top");
+    @include govuk-responsive-padding(2, "bottom");
+    border-bottom: 1px solid $govuk-border-colour;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    &__action {
+      @include govuk-font(16);
+    }
+  }
+}
+
+.app-box {
+  @include govuk-responsive-padding(3);
+  @include govuk-responsive-margin(6, "bottom");
+  border: 2px solid $govuk-border-colour;
+}

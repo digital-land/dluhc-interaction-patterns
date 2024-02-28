@@ -2,36 +2,4 @@
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
 //
-
-// Add extra styles here
-
-.govuk-template,
-.app-footer {
-  background: govuk-colour("light-grey");
-}
-
-.app-header {
-  background: #000;
-  padding: 15px;
-  &__container {
-    display: flex;
-    align-items: center;
-    color: white;
-    gap: 1em;
-  }
-  &__logo,
-  &__service-name {
-    @include govuk-font(19);
-    line-height: 1 !important;
-    flex-basis: auto;
-  }
-  &__logo {
-    font-weight: bold;
-  }
-  &__service-name {
-  }
-}
-
-.app-footer {
-  border-top: 1px solid govuk-colour("mid-grey");
-}
+@import "layout";

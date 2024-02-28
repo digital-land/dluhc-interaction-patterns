@@ -40,6 +40,14 @@ const defaultItem = function (value, params) {
   return itemOptions
 }
 
+addFilter('pluralise', function (number, singular = '', plural = 's') {
+  if (number == 1) {
+    return singular
+  } else {
+    return plural
+  }
+})
+
 addFilter('radioItem', function (value, params) {
   return defaultItem(value, params)
 })

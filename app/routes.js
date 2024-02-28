@@ -14,9 +14,15 @@ router.get('/RE04-01', (req, res, next) => {
   if (!data.interactions) {
     data.interactions = []
   }
-  data.interactions.push(
-    data.questions.what_other_planning_considerations_does_it_interact_with
-  )
+  if (
+    !data.interactions.includes(
+      data.questions.what_other_planning_considerations_does_it_interact_with
+    )
+  ) {
+    data.interactions.push(
+      data.questions.what_other_planning_considerations_does_it_interact_with
+    )
+  }
   next()
 })
 

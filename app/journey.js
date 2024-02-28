@@ -19,17 +19,20 @@ module.exports = req => {
       '/RE02': {},
       '/RE03': {},
       '/RE04': {
+        // if yes go to /RE04-01
         '/RE04-01': {
           data: "questions['does_it_interact_with_any_other_planning_considerations']",
           value: 'Yes'
         },
+        // if no skip to RE05 as no need to add any interactions
         '/RE05': {
           data: "questions['does_it_interact_with_any_other_planning_considerations']",
           value: 'No'
         }
       },
       '/RE04-01': {
-        '/RE04-02': { data: 'add_another', value: 'Yes' }
+        '/RE04-02': { data: 'add_another', value: 'Yes' },
+        '/RE05': { data: 'add_another', value: 'No' }
       },
       '/RE04-02': {
         '/RE04-01': true

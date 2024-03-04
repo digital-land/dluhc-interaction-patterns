@@ -11,19 +11,29 @@ const wizard = require('@x-govuk/govuk-prototype-wizard')
 
 router.get('/RE04-01', (req, res, next) => {
   const { data } = req.session
+
+  next()
+})
+
+router.get('/RE04-01', (req, res, next) => {
+  const { data } = req.session
+  // console.log('/RE04-01 Get Request')
+  // console.log(data)
+  let newInteraction = data.questions.add_a_planning_consideration || false
   if (!data.interactions) {
     data.interactions = []
   }
-  if (
-    !data.interactions.includes(
-      data.questions.what_other_planning_considerations_does_it_interact_with
-    )
-  ) {
-    data.interactions.push(
-      data.questions.what_other_planning_considerations_does_it_interact_with
-    )
+  if (newInteraction) {
+    if (!data.interactions.includes(newInteraction)) {
+      data.interactions.push(newInteraction)
+    }
   }
-  next()
+  // if there are no existing interactions - assume we are adding the first
+  if (data.interactions.length < 1) {
+    res.redirect('/RE04-02')
+  } else {
+    next()
+  }
 })
 
 router.all('/:view', (req, res, next) => {

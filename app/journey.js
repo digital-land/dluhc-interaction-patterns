@@ -30,8 +30,11 @@ module.exports = req => {
           value: 'No'
         }
       },
+      // add an interaction flow
       '/RE04-01': {
+        // if yes go to the add an item page
         '/RE04-02': { data: 'add_another', value: 'Yes' },
+        // if no skip on to the next part of the journey
         '/RE05': { data: 'add_another', value: 'No' }
       },
       '/RE04-02': {

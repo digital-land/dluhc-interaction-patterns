@@ -8,23 +8,29 @@
 {% block form %}
 
   {% if data.interactions | length %}
-    <h1 class="govuk-heading-m govuk-!-margin-bottom-x">You have added {{ data.interactions | length }} consideration{{ data.interactions | length | pluralise }}</h1>
+    <h1 class="govuk-heading-m govuk-!-margin-bottom-x">You have added {{ data.interactions | length }} consideration{{ data.interactions | length | pluralise }} that interact with [planning consideration name]</h1>
     <hr class="govuk-section-break govuk-section-break--m">
     <ol class="app-itemised-list">
       {% for interaction in data.interactions %}
         <li class="app-itemised-list__item">
           <div class="app-itemised-list__item__text">{{ interaction }}</div>
-          <div class="app-itemised-list__item__action">{{ 'Remove' }}</div>
+          <div class="app-itemised-list__item__action">
+            <a href="" class="govuk-link">{{ 'Remove' }}</a>
+          </div>
         </li>
       {% endfor %}
     </ol>
     <hr class="govuk-section-break govuk-section-break--m">
-    {{ govukRadios({
+  {% endif %}
+
+  {{ data.interations | log}}
+
+  {{ govukRadios({
       name: 'add_another',
       fieldset: {
         legend: {
-          text: 'Would you like to add another planning consideration?',
-          classes: "govuk-fieldset__legend--l"
+          text: 'Would you like to add another planning consideration?' if(data.interactions | length > 0) else 'Would you like to add a planning consideration?',
+          classes: "govuk-fieldset__legend--m"
         }
       },
       items: [
@@ -32,7 +38,6 @@
         "No" | radioItem
       ]
     }) }}
-  {% endif %}
 
   {{ govukButton({
     text: "Save and continue"

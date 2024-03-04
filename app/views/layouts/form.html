@@ -10,8 +10,19 @@
 
 {% block footer_content %}
   {{ data.questions | log }}
-  {{ govukSummaryList(data.questions | summaryList) }}
-  {% if data.length > 0 %}
-    <a href="/manage-prototype/clear-data">Clear data</a>
+  {% if data.questions %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s">Utilities</h3>
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a href="/utilities/view-data">View data</a>
+          </li>
+          <li>
+            <a href="/manage-prototype/clear-data">Clear data</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   {% endif %}
 {% endblock %}

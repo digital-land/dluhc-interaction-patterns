@@ -26,6 +26,7 @@ router.get('/RE04-01', (req, res, next) => {
   if (newInteraction) {
     if (!data.interactions.includes(newInteraction)) {
       data.interactions.push(newInteraction)
+      delete data.questions.add_a_planning_consideration
     }
   }
   // if there are no existing interactions - assume we are adding the first

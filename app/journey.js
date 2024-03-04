@@ -37,6 +37,7 @@ module.exports = req => {
         // if no skip on to the next part of the journey
         '/RE05': { data: 'add_another', value: 'No' }
       },
+      // this page always returns to the list of planning interactions for a logic gate (add another or move on)
       '/RE04-02': {
         '/RE04-01': true
       },

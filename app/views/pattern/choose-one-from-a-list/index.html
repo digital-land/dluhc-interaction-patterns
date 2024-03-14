@@ -7,9 +7,44 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            <h1 class="govuk-heading-l">
-                Choose one from a list
-            </h1>
+            {{ govukRadios({
+            name: "choose-one-from-a-list",
+            hint: {
+                text: 'Hint text'
+            },
+            fieldset: {
+                legend: {
+                text: "Choose one from a list",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "option-1",
+                    text: "Option 1"
+                },
+                {
+                    value: "option-2",
+                    text: "Option 2"
+                },
+                {
+                    value: "option-3",
+                    text: "Option 3"
+                },
+                {
+                    value: "option-4",
+                    text: "Option 4"
+                },
+                {
+                    divider: "or"
+                },
+                {
+                    value: "option-5",
+                    text: "Option 5"
+                }
+            ]
+            }) }}
 
         </div>
     </div>

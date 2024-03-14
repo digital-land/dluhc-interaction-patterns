@@ -1,27 +1,47 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
+{% set pageName = "Home" %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">
-      About this prototype
-    </h1>
+      <h1 class="govuk-heading-l">
+        Interaction patterns library
+      </h1>
 
-    <p class="govuk-body">This is a prototype of an internal tool for managing the creation of data standards for planning and housing data.</p>
+      <p class="govuk-body">A library of design patterns for tools and software developed by the Digital Planning, Leasehold Land & Planning Systems teams.</p>
 
-    <p class="govuk-body">
-      {{ govukButton({
-        text: "Start",
-        href: "/start",
-        isStartButton: true
-      }) }}
-    </p>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
+      <h2 class="govuk-heading-m">Asking for information</h2>
+
+      <ul class="govuk-list govuk-list--spaced">
+        <li>
+          <a href="#">Choose one from a list</a>
+        </li>
+        <li>
+          <a href="#">Choose multiple from a list</a>
+        </li>
+        <li>
+          <a href="#">Free text</a>
+        </li>
+        <li>
+          <a href="#">Yes or no</a>
+        </li>
+        <li>
+          <a href="#">Choose multiple from a list + other</a>
+        </li>
+        <li>
+          <a href="#">Add to a list</a>
+        </li>
+        <li>
+          <a href="#">Yes or no + narrative</a>
+        </li>
+      </ul>
+
+    </div>
   </div>
-</div>
 
 {% endblock %}

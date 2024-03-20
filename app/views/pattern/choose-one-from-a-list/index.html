@@ -1,52 +1,50 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/base.html" %}
 
-{% set pageName = "Home" %}
+{% block content_primary %}
 
-{% block content %}
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-
-            {{ govukRadios({
-            name: "choose-one-from-a-list",
-            hint: {
-                text: 'Hint text'
+    {{ govukRadios({
+        name: "choose-one-from-a-list",
+        hint: {
+            text: 'Hint text'
+        },
+        fieldset: {
+            legend: {
+            text: "Choose one from a list",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "option-1",
+                text: "Option 1"
             },
-            fieldset: {
-                legend: {
-                text: "Choose one from a list",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-                }
+            {
+                value: "option-2",
+                text: "Option 2"
             },
-            items: [
-                {
-                    value: "option-1",
-                    text: "Option 1"
-                },
-                {
-                    value: "option-2",
-                    text: "Option 2"
-                },
-                {
-                    value: "option-3",
-                    text: "Option 3"
-                },
-                {
-                    value: "option-4",
-                    text: "Option 4"
-                },
-                {
-                    divider: "or"
-                },
-                {
-                    value: "option-5",
-                    text: "Option 5"
-                }
-            ]
-            }) }}
+            {
+                value: "option-3",
+                text: "Option 3"
+            },
+            {
+                value: "option-4",
+                text: "Option 4"
+            },
+            {
+                divider: "or"
+            },
+            {
+                value: "option-5",
+                text: "Option 5"
+            }
+        ]
+    }) }}
 
-        </div>
-    </div>
+    {{ 
+        govukButton({
+            text: "Save and continue"
+        }) 
+    }}
 
 {% endblock %}

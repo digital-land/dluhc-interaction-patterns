@@ -1,11 +1,18 @@
 {% extends "layouts/main.html" %}
 
 {% block content %}
-    <form class="govuk-grid-row" method="post">
-        <div class="govuk-grid-column-two-thirds">
-            {% block content_primary %}{% endblock %}
-        </div>
-    </form>
+    {% block content_header %}{% endblock %}
+        {%- block content_body -%}
+        <form class="govuk-grid-row" method="post">
+            <div class="govuk-grid-column-two-thirds">
+                {% block content_primary %}{% endblock content_primary %}
+            </div>
+            <div class="govuk-grid-column-one-third">
+                {% block content_secondary %}{% endblock content_secondary %}
+            </div>
+        </form>
+        {%- endblock content_body -%}
+    {% block content_footer %}{% endblock %}
 {% endblock %}
 
 {% block footer_content %}

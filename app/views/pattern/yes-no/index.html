@@ -1,17 +1,37 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/question.html" %}
 
 {% set pageName = "Home" %}
 
-{% block content %}
+{% block question %}
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+    {{ govukRadios({
+        name: "choose-one-from-a-list",
+        hint: {
+            text: 'Hint text'
+        },
+        fieldset: {
+            legend: {
+            text: "Yes or no",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "yes",
+                text: "Yes"
+            },
+            {
+                value: "no",
+                text: "No"
+            }
+        ]
+    }) }}
 
-            <h1 class="govuk-heading-l">
-                Yes or no
-            </h1>
-
-        </div>
-    </div>
+    {{ 
+        govukButton({
+            text: "Save and continue"
+        }) 
+    }}
 
 {% endblock %}

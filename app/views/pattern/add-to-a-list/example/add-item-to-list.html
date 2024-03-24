@@ -1,0 +1,33 @@
+{% extends "layouts/question.html" %}
+
+{% block question %}
+
+  {{ xGovukAutocomplete({
+      id: 'example-list-item-picker',
+      name: 'example-list-item-picker',
+      allowEmpty: false,
+      formGroup: {
+        classes: 'govuk-!-margin-bottom-6'
+      },
+      label: {
+        classes: "govuk-label--m govuk-!-margin-bottom-1",
+        text: 'Add a planning consideration'
+      },
+      hint: {
+        text: 'Search for a planning consideration'
+      },
+      items: [
+        { text: "Tree preservation orders" },
+        { text: "Article 4 Directions" },
+        { text: "Brownfield land" }
+      ]
+    }) }}
+
+{% endblock %}
+
+{% block buttons %}
+    {{ govukButton({
+        text: "Save and continue",
+        href: "add-item-to-list"
+    }) }}
+{% endblock %}

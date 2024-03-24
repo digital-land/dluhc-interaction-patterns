@@ -54,3 +54,8 @@
   @include govuk-responsive-margin(6, "bottom");
   border: 2px solid $govuk-border-colour;
 }
+
+.app-image-example {
+  max-width: 100%;
+  display: block;
+}

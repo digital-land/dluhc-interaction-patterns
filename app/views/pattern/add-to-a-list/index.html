@@ -1,17 +1,20 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/base.html" %}
 
-{% set pageName = "Home" %}
+{% block content_primary %}
 
-{% block content %}
+    <h1 class="govuk-heading-l">
+        Add to a list
+    </h1>
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">Also known as 'Add multiple things' or 'Add another' this is an interaction that allows a user to add multiple items of the same thing, check and add more if needed.</p>
+    <p class="govuk-body"><img src="/public/images/add-another.svg" class="app-image-example" alt="An example of an interaction to add multiple addresses"></p>
+    
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-            <h1 class="govuk-heading-l">
-                Add to a list
-            </h1>
-
-        </div>
-    </div>
+    <ul class="govuk-list govuk-list--spaced">
+        <li>
+            <a href="example/list-view">Simple example</a>
+        </li>
+    </ul>
 
 {% endblock %}

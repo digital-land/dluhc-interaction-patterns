@@ -1,6 +1,6 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/question.html" %}
 
-{% block content_primary %}
+{% block question %}
 
     {{ govukRadios({
         name: "choose-one-from-a-list",
@@ -41,10 +41,12 @@
         ]
     }) }}
 
+{% endblock %}
+
+{% block buttons %}
     {{ 
         govukButton({
             text: "Save and continue"
-        }) 
+        })
     }}
-
 {% endblock %}

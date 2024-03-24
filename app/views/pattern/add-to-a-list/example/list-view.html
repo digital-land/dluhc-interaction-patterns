@@ -1,0 +1,38 @@
+{% extends "layouts/question.html" %}
+
+{% block list %}
+
+{% endblock %}
+
+{% block question %}
+    {{ govukRadios({
+        name: "add-item-to-list",
+        fieldset: {
+            legend: {
+                text: "Do you want to add a [thing] to this list?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+            }
+        },
+        hint: {
+            text: "Select all that apply"
+        },
+        items: [
+            {
+                value: "yes",
+                text: "Yes"
+            },
+            {
+                value: "no",
+                text: "No"
+            }
+        ]
+    }) }}
+{% endblock %}
+
+{% block buttons %}
+    {{ govukButton({
+        text: "Save and continue",
+        href: "add-item-to-list"
+    }) }}
+{% endblock %}
